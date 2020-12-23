@@ -37,7 +37,7 @@ function install_elastic {
 	vagrant ssh -c 'echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list'
 	vagrant ssh -c 'sudo apt-get -y update'
 	vagrant ssh -c 'sudo apt-get -y install elasticsearch'
-	vagrant ssh -c 'sudo mv elasticsearch/* /etc/elasticsearch/'
+	vagrant ssh -c 'sudo mv elastic/* /etc/elasticsearch/'
 	vagrant ssh -c 'sudo systemctl start elasticsearch'
 	vagrant ssh -c 'sudo systemctl enable elasticsearch'
 
@@ -79,7 +79,7 @@ function init_vm {
 	echo "Configuring virtual machine..."
 	vagrant up
 	vagrant ssh -c 'sudo apt -y update'
-	vagrant scp $pwd/config/elasticsearch . default
+	vagrant scp $pwd/config/elastic . default
 	vagrant scp $pwd/config/grafana . default
 	vagrant ssh -c 'sudo apt -y install openjdk-11-jdk'
 	install_utils

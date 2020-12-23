@@ -1,7 +1,9 @@
 Vagrant.configure("2") do |config|
 
   config.vm.box = "ubuntu/focal64"
-  config.vm.network "forwarded_port", guest: 9200, host: 9200
+
+  config.vm.network "forwarded_port", guest: 3000, host: 3001
+  config.vm.network "forwarded_port", guest: 9200, host: 9201
 #   config.vm.provision "file", source: "./config/elastic", destination: "/home/vagrant"
 #   config.vm.provision "file", source: "./config/grafana", destination: "/home/vagrant"
 end

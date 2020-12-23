@@ -71,7 +71,7 @@ function run_application {
   	vagrant ssh -c 'git clone https://github.com/OvchinK/mephi-dsbda-2020-hw3-stream-api'
 	vagrant ssh -c 'sudo alternatives --set java /usr/lib/jvm/java-11-openjdk-11.0.9.11-0.el7_9.x86_64/bin/java'
 	vagrant ssh -c 'mvn clean package -f ./mephi-dsbda-2020-hw3-stream-api/pom.xml'
-	vagrant ssh -c 'nohup java -jar ./check-inst-followers/app/target/inst-followers-0.0.1-SNAPSHOT.jar & sleep 20'
+	vagrant ssh -c 'nohup java -jar ./check-inst-followers/app/target/inst-followers-0.0.1-SNAPSHOT.jar > twitter_streaming_elk.log & sleep 20'
 }
 
 
